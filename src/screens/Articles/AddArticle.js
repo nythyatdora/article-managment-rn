@@ -59,7 +59,7 @@ const Buttons = (props) => {
             DESCRIPTION: description,
         };
 
-        if (photo) {
+        if (photo !== "") {
             await dispatch(uploadImage(createForm(photo)));
 
             newArticle = {
@@ -69,11 +69,7 @@ const Buttons = (props) => {
         }
 
         dispatch(createArticle(newArticle));
-    
-        if(photo) {
-            dispatch(clearImageLink());        
-        }
-    
+        dispatch(clearImageLink());        
         dispatch(viewArticles(1, 15));
 
         navigation.navigate('ARTICLE_SCREEN');

@@ -136,7 +136,7 @@ function clearImageLink() {
     return dispatch => {
         dispatch({
             type: actions.CLEAR_IMAGE_LINK,
-            payload: ''
+            payload: {}
         });
     }
 }
