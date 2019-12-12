@@ -44,17 +44,17 @@ const articleReducer = (state = INITIAL_STATE, action) => {
                 searchedArticles: action.payload
             };
 
-        case actions.CLEAR_IMAGE_LINK: 
+        case actions.CLEAR_IMAGE_LINK:
             return {
                 ...state,
-                uploadedImageLink: action.payload
-            }
+                uploadedImageLink: action.payload,
+            };
 
         case actions.CLEAR_CURRENT_SELECTED:
             return {
                 ...state,
                 currentSelected: action.payload,
-            }
+            };
 
         default:
             return state;

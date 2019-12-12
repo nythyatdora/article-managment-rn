@@ -136,7 +136,7 @@ function clearImageLink() {
     return dispatch => {
         dispatch({
             type: actions.CLEAR_IMAGE_LINK,
-            payload: {}
+            payload: '',
         });
     }
 }
@@ -145,7 +145,7 @@ function clearCurrentSelected() {
     return dispatch => {
         dispatch({
             type: actions.CLEAR_CURRENT_SELECTED,
-            payload: {}
+            payload: ''
         });
     }
 }

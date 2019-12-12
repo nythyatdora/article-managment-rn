@@ -25,7 +25,7 @@ import moment from 'moment';
 import {
     viewArticles,
     viewArticleById,
-    deleteArticleById
+    deleteArticleById,
 } from '../../redux/actions/ArticleActions/ArticleActions';
 
 import ContentLoader, { Rect, Circle } from 'react-content-loader/native';

@@ -53,14 +53,14 @@ const Buttons = (props) => {
         return body;
     }
 
-    async function addHandler() {
+    function addHandler() {
         let newArticle = {
             TITLE: title,
             DESCRIPTION: description,
         };
 
         if (photo !== "") {
-            await dispatch(uploadImage(createForm(photo)));
+            dispatch(uploadImage(createForm(photo)));
 
             newArticle = {
                 ...newArticle,
@@ -69,7 +69,7 @@ const Buttons = (props) => {
         }
 
         dispatch(createArticle(newArticle));
-        dispatch(clearImageLink());        
+        dispatch(clearImageLink());
         dispatch(viewArticles(1, 15));
 
         navigation.navigate('ARTICLE_SCREEN');
