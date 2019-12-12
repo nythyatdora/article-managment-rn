@@ -10,6 +10,8 @@ const actions = {
     VIEW_ARTICLES: 'VIEW_ARTICLES',
     VIEW_ARTICLE_BY_ID: 'VIEW_ARTICLE_BY_ID',
     VIEW_ARTICLE_BY_NAME: 'VIEW_ARTICLE_BY_NAME',
+    CLEAR_IMAGE_LINK: 'CLEAR_IMAGE_LINK',
+    CLEAR_CURRENT_SELECTED: 'CLEAR_CURRENT_SELECTED'
 };
 
 function createArticle(newArticle) {
@@ -130,6 +132,24 @@ function deleteArticleById(id) {
     }
 }
 
+function clearImageLink() {
+    return dispatch => {
+        dispatch({
+            type: actions.CLEAR_IMAGE_LINK,
+            payload: ''
+        });
+    }
+}
+
+function clearCurrentSelected() {
+    return dispatch => {
+        dispatch({
+            type: actions.CLEAR_CURRENT_SELECTED,
+            payload: {}
+        });
+    }
+}
+
 export {
     actions,
     createArticle,
@@ -137,5 +157,7 @@ export {
     viewArticles,
     viewArticleById,
     viewArticleByName,
-    deleteArticleById
+    deleteArticleById,
+    clearImageLink,
+    clearCurrentSelected
 };

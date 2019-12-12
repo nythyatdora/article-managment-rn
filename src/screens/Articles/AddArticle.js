@@ -25,6 +25,7 @@ import {
     createArticle,
     uploadImage,
     viewArticles,
+    clearImageLink
 } from '../../redux/actions/ArticleActions/ArticleActions';
 
 const AddArticle = (props) => {
@@ -58,14 +59,21 @@ const Buttons = (props) => {
             DESCRIPTION: description,
         };
 
-        dispatch(uploadImage(createForm(photo)));
+        if (photo) {
+            await dispatch(uploadImage(createForm(photo)));
 
-        newArticle = {
-            ...newArticle,
-            IMAGE: imageLink,
-        };
+            newArticle = {
+                ...newArticle,
+                IMAGE: imageLink,
+            };
+        }
 
         dispatch(createArticle(newArticle));
+    
+        if(photo) {
+            dispatch(clearImageLink());        
+        }
+    
         dispatch(viewArticles(1, 15));
 
         navigation.navigate('ARTICLE_SCREEN');

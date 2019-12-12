@@ -23,6 +23,8 @@ import {
     setDate
 } from './Articles';
 
+import { clearCurrentSelected } from '../../redux/actions/ArticleActions/ArticleActions';
+
 const ViewArticle = (props) => {
     const { navigation } = props;
 
@@ -33,10 +35,15 @@ const ViewArticle = (props) => {
 };
 
 function Main(props) {
-    const { TITLE, DESCRIPTION, IMAGE, CREATED_DATE } = useSelector(state => state.articleReducer.currentSelected);
+    const { TITLE = 'no title', DESCRIPTION = 'no description', IMAGE, CREATED_DATE = new Date()} = useSelector(state => state.articleReducer.currentSelected);
+    const dispatch = useDispatch();
     const { navigation } = props;
 
+    const imageUri = !IMAGE ?
+        require('../../assets/images/MegaTron.jpg') : { uri: IMAGE };
+
     function navigateBack() {
+        dispatch(clearCurrentSelected());
         navigation.goBack();
     }
 
@@ -47,7 +54,7 @@ function Main(props) {
     return (<>
         <ScrollView>
             <ImageBackground
-                source={{ uri: IMAGE }}
+                source={imageUri}
                 style={modal.imageWrapper}
                 borderBottomLeftRadius={40}
                 borderBottomRightRadius={40}
